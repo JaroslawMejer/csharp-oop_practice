@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    public class Customer
+    public class Customer : EntityBase
     {
         public Customer(): this(0)
         {
@@ -38,7 +38,7 @@ namespace ACM.BL
                 return fullName;
             }
         }
-
+        public override string ToString() => FullName;
         public static int InstanceCount { get; set; }
 
         private string _lastName;
@@ -53,7 +53,7 @@ namespace ACM.BL
                 _lastName = value;
             }
         }
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
